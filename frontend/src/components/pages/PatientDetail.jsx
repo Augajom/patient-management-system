@@ -11,7 +11,7 @@ export default function PatientDetail() {
   useEffect(() => {
     const fetchPatient = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/patients/${id}`);
+        const res = await fetch(`${import.meta.env.VITE_API_BASE}/patients/${id}`);
         const data = await res.json();
         setPatient(data);
       } catch (err) {

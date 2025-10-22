@@ -9,7 +9,7 @@ export default function PatientList() {
   useEffect(() => {
   const fetchPatients = async () => {
     try {
-      const res = await fetch("http://localhost:3000/patients");
+      const res = await fetch("${import.meta.env.VITE_API_BASE}/patients");
       const data = await res.json();
       setPatients(data);
     } catch (err) {
@@ -40,7 +40,7 @@ export default function PatientList() {
   const handleDelete = async (id) => {
   if (window.confirm("คุณแน่ใจหรือไม่ว่าต้องการลบผู้ป่วยคนนี้?")) {
     try {
-      await fetch(`http://localhost:3000/patients/${id}`, {
+      await fetch(`${import.meta.env.VITE_API_BASE}/patients/${id}`, {
         method: "DELETE",
       });
       setPatients(patients.filter((p) => p._id !== id));

@@ -740,7 +740,7 @@ export default function EditPatient() {
   useEffect(() => {
     const fetchPatient = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/patients/${id}`);
+        const res = await fetch(`${import.meta.env.VITE_API_BASE}/patients/${id}`);
         if (!res.ok) throw new Error("ไม่พบผู้ป่วย");
         const data = await res.json();
 
@@ -799,7 +799,7 @@ export default function EditPatient() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:3000/patients/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE}/patients/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
