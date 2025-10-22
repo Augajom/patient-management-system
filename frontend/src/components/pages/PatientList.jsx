@@ -9,12 +9,11 @@ export default function PatientList() {
   useEffect(() => {
   const fetchPatients = async () => {
     try {
-  const res = await fetch(`${import.meta.env.VITE_API_BASE}/patients`);
-  console.log(res.status);
-  const data = await res.json();
-  console.log(data);
-} catch (err) {
-  console.error(err);
+      const res = await fetch(`${import.meta.env.VITE_API_BASE}/patients`);
+      const data = await res.json();
+      setPatients(data);
+    } catch (err) {
+      console.error(err);
       alert("โหลดข้อมูลผู้ป่วยล้มเหลว ❌");
     }
   };
