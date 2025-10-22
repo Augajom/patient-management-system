@@ -19,6 +19,15 @@ mongoose.connect(process.env.MONGODB_URI)
 app.use(cors());
 app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log(req.method, req.path);
+  next();
+});
+
+app.use(cors({
+  origin: 'https://patient-management-system-frontend-29v2.onrender.com'
+}));
+
 // CREATE: เพิ่มผู้ป่วยใหม่
 app.post('/patients', async (req, res) => {
   try {
