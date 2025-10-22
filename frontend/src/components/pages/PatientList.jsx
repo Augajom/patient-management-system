@@ -9,7 +9,7 @@ export default function PatientList() {
   useEffect(() => {
   const fetchPatients = async () => {
     try {
-      const res = await fetch("${import.meta.env.VITE_API_BASE}/patients");
+      const res = await fetch(`${import.meta.env.VITE_API_BASE}/patients`);
       const data = await res.json();
       setPatients(data);
     } catch (err) {

@@ -783,7 +783,7 @@ export default function PatientForm() {
       };
 
       const response = await axios.post(
-        "${import.meta.env.VITE_API_BASE}/patients",
+        `${import.meta.env.VITE_API_BASE}/patients`,
         payload
       );
       alert("บันทึกข้อมูลเรียบร้อย ✅");
